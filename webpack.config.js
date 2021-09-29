@@ -14,21 +14,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: [/\.jsx$/],
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
           presets: ['env', 'react'],
-          plugins: ['babel-plugin-transform-object-rest-spread', 'transform-class-properties'],
+          plugins: ['transform-class-properties'],
         },
-      },
-      {
-        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader',
       },
     ],
   },
