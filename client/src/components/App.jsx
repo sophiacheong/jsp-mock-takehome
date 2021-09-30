@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div>
       <Search setGists={setGists} />
-      <GistList />
+      <GistList gists={gists} />
     </div>
   )
 };
