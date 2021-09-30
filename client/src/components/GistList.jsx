@@ -14,8 +14,11 @@ const GistList = ({ gists }) => {
       ))
 
       axios.all(promises)
-        .then((...res) => (
-        ));
+        .then(axios.spread((...res) => {
+          let result = [];
+          res.map(el => result.push(el.data));
+          setDetails(result);
+        }));
     }
   }, [gists])
 
