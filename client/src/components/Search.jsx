@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default Search = () => {
+const Search = ({ setGists }) => {
   const [username, setUsername] = useState('');
 
   const search = () => {
-
+    axios.get('/gists', { headers: { username } })
+      .then(res => setGists(res.data))
+      .catch(err => console.error(err));
   }
 
   return (
@@ -15,3 +17,5 @@ export default Search = () => {
     </div>
   )
 };
+
+export default Search;
