@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const GistList = ({ gists }) => {
+  const [gistDetail, setDetail] = useState();
+
+  const clickGist = () => {
+    axios.get(`/gist/${}`)
+      .then(res => )
+  };
+
   return (
     <div>
       {gists.length ?
