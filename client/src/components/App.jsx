@@ -1,18 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Search from './Search';
 
 const App = () => {
-  const [username, setUsername] = useState('');
-
-  const search = () => {
-    console.log('hi');
-  }
-
   return (
     <div>
-      <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Type here..." name="username" />
-      <button onClick={search}>Search</button>
+      <Search />
     </div>
   )
-}
+};
 
 export default App;
