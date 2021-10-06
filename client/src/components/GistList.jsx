@@ -4,6 +4,13 @@ import axios from 'axios';
 const GistList = ({ gists }) => {
   const [details, setDetails] = useState([]);
 
+  const clickGist = (id) => {
+    let updated = details;
+    let index = details.findIndex(el => el.id === id);
+    details[index]['clicked'] = !details[index]['clicked'];
+    setDetails(updated);
+  };
+
   useEffect(() => {
     let promises = [];
     if (gists.length) {
@@ -21,13 +28,7 @@ const GistList = ({ gists }) => {
     }
   }, [gists])
 
-  const clickGist = (id) => {
-    let updated = details;
-    let index = details.findIndex(el => el.id === id);
-    details[index]['clicked'] = !details[index]['clicked'];
-    console.log(details[index])
-    setDetails(updated);
-  };
+  useEffect(() => {}, [details])
 
   return (
     <div>
