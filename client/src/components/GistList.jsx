@@ -40,13 +40,6 @@ const GistList = ({ gists }) => {
                 <li>{el.url}</li>
               </ul>
             )) : null}
-            {/* {details.length ? details.map(element => {
-              if (element.url === el.id) {
-                return <ul key={element.id}>
-                  <li>idk</li>
-                </ul>
-              }
-            }) : null} */}
             </ul>
           ))
       : null}
