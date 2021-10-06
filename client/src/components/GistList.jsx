@@ -4,6 +4,8 @@ import axios from 'axios';
 const GistList = ({ gists }) => {
   const [details, setDetails] = useState([]);
 
+  useEffect(() => console.log(details), [details])
+
   useEffect(() => {
     let promises = [];
     if (gists.length) {
@@ -32,10 +34,14 @@ const GistList = ({ gists }) => {
             <ul key={el.id}>
             <li>Date: {el.created_at}</li>
             <li>Description: {el.description}</li>
-            {/* {details.length ? console.log(details) : null} */}
+            {details.length ? details.filter(element => element.id === el.id).map(el => (
+              <ul key={el.id}>
+                <li>{el.url}</li>
+              </ul>
+            )) : null}
             {/* {details.length ? details.map(element => {
               if (element.url === el.id) {
-                <ul key={element.id}>
+                return <ul key={element.id}>
                   <li>idk</li>
                 </ul>
               }

@@ -5,7 +5,6 @@ const Search = ({ setGists }) => {
   const [username, setUsername] = useState('');
 
   const search = () => {
-    console.log(username)
     axios.get('/gists', { headers: { username } })
       .then(res => setGists(res.data))
       .catch(err => console.error(err));
