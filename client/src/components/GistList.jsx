@@ -17,6 +17,7 @@ const GistList = ({ gists }) => {
         .then(axios.spread((...res) => {
           let result = [];
           res.map(el => result.push(el.data));
+          result.forEach(el => el["clicked"] = false);
           setDetails(result);
         }));
     }
@@ -35,7 +36,7 @@ const GistList = ({ gists }) => {
             <li>Date: {el.created_at}</li>
             <li>Description: {el.description}</li>
             {details.length ? details.filter(element => element.id === el.id).map(el => (
-              <ul key={el.id}>
+              <ul key={el.id} style={{ display : (!el.clicked ? 'none': 'block') }}>
                 <li>{el.url}</li>
               </ul>
             )) : null}
