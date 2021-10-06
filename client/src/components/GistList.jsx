@@ -36,7 +36,7 @@ const GistList = ({ gists }) => {
             <li>Description: {el.description}</li>
             {details.length ? details.map(el => (
               <ul key={el.id}>
-                <li>hi</li>
+                <li>idk</li>
               </ul>
             )) : null}
             </ul>
