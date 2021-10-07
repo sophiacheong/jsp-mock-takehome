@@ -27,7 +27,7 @@ const GistList = ({ gists }) => {
         }));
     }
   }, [gists])
-
+  // need to figure out how to re render the components list for the styles
   useEffect(() => {}, [details])
 
   return (
